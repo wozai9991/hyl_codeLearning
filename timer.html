@@ -1,23 +1,46 @@
-<html>
+<!doctype html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=2.0, minimum-scale=0.5,user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="text/javascript">
         var c=0;
         var t;
+
         function timedCount()
         {
             document.getElementById('txt').value=c;
             c=c+1;
             t=setTimeout("timedCount()",1000);
         }
+        function pauseCount()
+        {
+            clearTimeout(t);
+        }
+        function stopCount()
+        {
+            c=0;
+            setTimeout("document.getElementById('txt').value=0",0);
+            clearTimeout(t);
+        }
+        function goForward()
+        {
+            window.history.forward();
+        }
+
+
     </script>
 </head>
-
 <body>
 <form>
-    <input type="button" value="开始计时！" onClick="timedCount()">
+    <input type="button" value="开始计时！" onClick="timedCount();">
     <input title="timer" type="text" id="txt">
+    <input type="button" value="暂停" onClick="pauseCount();">
+    <input type="button" value="停止" onClick="stopCount()">
 </form>
 <p>请点击上面的按钮。输入框会从 0 开始一直进行计时。</p>
-</body>
 
+<a href="goToBack.html">go back</a>
+<a href="#"  onclick="goForward()">转到下一页</a>
+</body>
 </html>

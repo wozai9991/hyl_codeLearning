@@ -9,3 +9,7 @@
 
 2.timer.html
 计时器
+(在其中加入了后退前进页的js)
+
+3.goToBack.html
+返回前一页
